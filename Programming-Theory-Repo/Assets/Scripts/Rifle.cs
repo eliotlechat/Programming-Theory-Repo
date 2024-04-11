@@ -10,6 +10,7 @@ public class Rifle : MonoBehaviour
     private GameObject projectilPosition;
     [SerializeField]
     private ParticleSystem shootParticle;
+   
 
     private AudioSource playerAudio;
 
@@ -27,9 +28,13 @@ public class Rifle : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectil,projectilPosition.transform.position,projectil.transform.rotation);
+            Instantiate(projectil,projectilPosition.transform.position, projectilPosition.transform.rotation);
+            //bullet.transform.SetParent(projectilPosition.transform);
             playerAudio.PlayOneShot(shootSound);
             shootParticle.Play();
+
+            
         }
+
     }
 }

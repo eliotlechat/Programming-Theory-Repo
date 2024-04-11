@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveUp : MonoBehaviour
+public class MoveForward : MonoBehaviour
 {
     [SerializeField]
     private int speed;
@@ -17,6 +17,6 @@ public class MoveUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self); // Space.self ca veut dire par rapport au local
     }
 }
