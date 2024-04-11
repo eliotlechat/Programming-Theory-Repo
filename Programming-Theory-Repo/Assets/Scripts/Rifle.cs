@@ -8,11 +8,18 @@ public class Rifle : MonoBehaviour
     private GameObject projectil;
     [SerializeField]
     private GameObject projectilPosition;
+    [SerializeField]
+    private ParticleSystem shootParticle;
+
+    private AudioSource playerAudio;
+
+    [SerializeField]
+    private AudioClip shootSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +28,8 @@ public class Rifle : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectil,projectilPosition.transform.position,projectil.transform.rotation);
+            playerAudio.PlayOneShot(shootSound);
+            shootParticle.Play();
         }
     }
 }
